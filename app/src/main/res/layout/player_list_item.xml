@@ -3,32 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <data>
-        <import type="android.view.View"/>
+       <import type="android.view.View"/>
         <variable
             name="checkBoxHidden"
-            android:checked="@{checkBoxHidden}"
-            android:visibility="@{checkBoxHidden ? View.INVISIBLE :View.VISIBLE}"
-            type="Boolean" />
+            type="Boolean"/>
         <variable
             name="switchHidden"
-            android:visibility="@{switchHidden?View.INVISIBLE:View.VISIBLE}"
-            type="Boolean" />
+            type="Boolean"/>
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
             android:id="@+id/checkboxPlayerActive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="@{checkBoxHidden}"
+            android:visibility="@{checkBoxHidden ? View.INVISIBLE:View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/editTextPlayerName"
             app:layout_constraintTop_toTopOf="@id/editTextPlayerName"
             app:layout_constraintStart_toStartOf="parent"/>
-
         <EditText
             android:id="@+id/editTextPlayerName"
             android:layout_width="0dp"
@@ -45,6 +40,8 @@
             android:id="@+id/switchPlayerType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="@{switchHidden}"
+            android:visibility="@{switchHidden ? View.INVISIBLE:View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/editTextPlayerName"
             app:layout_constraintTop_toTopOf="@id/editTextPlayerName"
             app:layout_constraintEnd_toEndOf="parent"/>
