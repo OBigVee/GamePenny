@@ -8,5 +8,4 @@ data class NewPlayer (
     val canBeRemoved: Boolean = true,
     val canBeToggled:Boolean = true,
     var isIncluded: ObservableBoolean = ObservableBoolean(!canBeRemoved)
-
 )
