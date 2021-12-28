@@ -3,17 +3,19 @@
     xmlns:android= "http://schemas.android.com/apk/res/android"
     xmlns:app= "http://schemas.android.com/apk/res-auto"
     xmlns:tools= "http://schemas.android.com/tools" >
-<data>
-    <variable
-        name="viewModel"
-        type="com.example.pennydrop.viewmodels/PickPlayersViewModel" />
-</data>
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.pennydrop.viewmodels.PickPlayersViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         tools:context=".fragments.PickPlayersFragment">
 
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,6 +27,7 @@
             <include
                 android:id="@+id/mainPlayer"
                 layout="@layout/player_list_item"
+                app:player="@{vm.players[0]}"
                 />
 <!--            app:checkBoxHidden="@{true}"-->
 <!--            app:switchHidden="@{true}"-->
@@ -32,20 +35,26 @@
             <include
                 android:id="@+id/player2"
                 layout="@layout/player_list_item"
-                app:checkBoxHidden="@{true}"
+                app:player="@{vm.players[1]}"
                />
+<!--            app:checkBoxHidden="@{true}"-->
             <include
                 android:id="@+id/player3"
-                layout="@layout/player_list_item"/>
+                layout="@layout/player_list_item"
+                app:player="@{vm.players[2]}"
+                />
             <include
                 android:id="@+id/player4"
-                layout="@layout/player_list_item"/>
+                layout="@layout/player_list_item"
+                app:player="@{vm.players[3]}" />
             <include
                 android:id="@+id/player5"
-                layout="@layout/player_list_item"/>
+                layout="@layout/player_list_item"
+                app:player="@{vm.players[4]}" />
             <include
                 android:id="@+id/player6"
-                layout="@layout/player_list_item"/>
+                layout="@layout/player_list_item"
+                app:player="@{vm.players[5]}" />
         </LinearLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/buttonPlayGame"

@@ -11,7 +11,11 @@
         <variable
             name="switchHidden"
             type="Boolean"/>
+        <variable
+            name="player"
+            type="com.example.pennydrop.types.NewPlayer" />
     </data>
+    
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,8 +23,8 @@
             android:id="@+id/checkboxPlayerActive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="@{checkBoxHidden}"
-            android:visibility="@{checkBoxHidden ? View.INVISIBLE:View.VISIBLE}"
+            android:checked="@{player.isIncluded()}"
+            android:visibility="@{player.canBeRemoved ? View.INVISIBLE:View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/editTextPlayerName"
             app:layout_constraintTop_toTopOf="@id/editTextPlayerName"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -40,7 +44,6 @@
             android:id="@+id/switchPlayerType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="@{switchHidden}"
             android:visibility="@{switchHidden ? View.INVISIBLE:View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/editTextPlayerName"
             app:layout_constraintTop_toTopOf="@id/editTextPlayerName"
