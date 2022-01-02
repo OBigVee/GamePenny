@@ -1,0 +1,21 @@
+package com.example.pennydrop.game
+
+data class AI (val name:String){
+    override fun toString() = name
+
+    companion object{
+        @jvmStatic
+        val basicAI = listOf(
+            AI("TwoFace"),
+            AI("No Go Noah"),
+            AI("Bail Out Beulah"),
+            AI("Fearful Fred"),
+            AI("Even Steven"),
+            AI("Riverboat Ron"),
+            AI("Sammy Sixes"),
+            AI("Random Rachael")
+        )
+    }
+}
+
+annotation class jvmStatic
