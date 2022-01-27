@@ -1,2 +1,2 @@
-# Explore Jetpack Compose with Kotlin by building game UI
+# Explore Jetpack Compose features with Kotlin by building complex game user interface
 
