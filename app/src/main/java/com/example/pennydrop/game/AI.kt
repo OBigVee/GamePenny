@@ -2,9 +2,8 @@ package com.example.pennydrop.game
 
 data class AI (val name:String){
     override fun toString() = name
-
     companion object{
-        @jvmStatic
+        @JvmStatic
         val basicAI = listOf(
             AI("TwoFace"),
             AI("No Go Noah"),
@@ -18,4 +17,3 @@ data class AI (val name:String){
     }
 }
 
-annotation class jvmStatic
