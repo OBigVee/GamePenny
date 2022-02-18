@@ -14,7 +14,7 @@ class PickPlayersViewModel:ViewModel() {
             NewPlayer(
                 // conditional logic to parse logic to the pick player screen
                 canBeRemoved = it > 2, // last 4 players can be remove
-                caBeToggled = it > 1 // only last 5 players can be toggled
+                canBeToggled = it > 1 // only last 5 players can be toggled
             )
         }
     }

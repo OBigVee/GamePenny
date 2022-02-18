@@ -3,7 +3,12 @@ package com.example.pennydrop.types
 import android.widget.ToggleButton
 import androidx.databinding.ObservableBoolean
 import com.example.pennydrop.game.AI
-
+/**
+ * NewPlayer class different from the Player.kt class.
+ *  this class intends to figure out who's in the game and who they are:
+ *  (either human or AI, what's their name or which AI).
+ *
+ */
 data class NewPlayer (
     var playerName : String = "",
     val isHuman:ObservableBoolean = ObservableBoolean(true),
@@ -12,7 +17,6 @@ data class NewPlayer (
     var isIncluded: ObservableBoolean = ObservableBoolean(false),
     // track the index of selected AI(retrieved from Ai.BasicAI or AI.getBasicAI)
     var selectedAIPosition: Int = -1
-
 ){
     fun selectedAI() = if(!isHuman.get()){
         AI.basicAI.getOrNull(selectedAIPosition)
@@ -20,6 +24,10 @@ data class NewPlayer (
         null
     }
     fun toPlayer()=Player(
+        /**
+         * Gets the player's name or Ai name and
+         * then maps a few values from NewPlayer
+         */
         if(this.isHuman.get()){
             this.playerName
         }else{

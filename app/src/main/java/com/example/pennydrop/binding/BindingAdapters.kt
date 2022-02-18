@@ -1,3 +1,9 @@
 package com.example.pennydrop.binding
 
-annotation class BindingAdapters()
+import android.view.View
+import androidx.databinding.BindingAdapter
+
+@BindingAdapter("isHidden")
+fun bindIsHidden(view: View, isInvisible:Boolean){
+    view.visibility = if(isInvisible) View.INVISIBLE else View.VISIBLE
+}
