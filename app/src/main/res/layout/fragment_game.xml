@@ -4,6 +4,13 @@ xmlns:android= "http://schemas.android.com/apk/res/android"
 xmlns:app= "http://schemas.android.com/apk/res-auto"
 xmlns:tools= "http://schemas.android.com/tools" >
 
+    <data>
+        <variable
+            name="gvm"
+            type="com.example.pennydrop.viewmodels.GameViewModel"/>
+    </data>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,7 +36,8 @@ xmlns:tools= "http://schemas.android.com/tools" >
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:slotNum="@{1}"/>
+            app:slot="@{gvm.slots[0]}"
+            />
 
         <include
             android:id="@+id/coinSlot2"
@@ -37,23 +45,27 @@ xmlns:tools= "http://schemas.android.com/tools" >
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:slotNum="@{2}"/>
-
+            app:slot="@{gvm.slots[1]}"
+            />
+<!--app:slotNum="@{2}"-->
         <include
             android:id="@+id/coinSlot3"
             layout="@layout/layout_coin_slot"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:slotNum="@{3}"/>
-
+            app:slot="@{gvm.slots[2]}"
+            />
+<!--app:slotNum="@{3}"-->
         <include
             android:id="@+id/coinSlot4"
             layout="@layout/layout_coin_slot"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:slotNum="@{4}"/>
+            app:slot="@{gvm.slots[3]}"
+            />
+<!--app:slotNum="@{4}"-->
 
         <include
             android:id="@+id/coinSlot5"
@@ -61,7 +73,9 @@ xmlns:tools= "http://schemas.android.com/tools" >
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:slotNum="@{5}"/>
+            app:slot="@{gvm.slots[4]}"
+            />
+<!--app:slotNum="@{5}"-->
 
         <!--The other four slots live down here-->
         <!-- They only differ by ID and slotNum values-->
@@ -75,7 +89,9 @@ xmlns:tools= "http://schemas.android.com/tools" >
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutCoinSlots"
-        app:slotNum="@{6}"/>
+        app:slot="@{gvm.slots[5]}"
+        />
+<!-- app:slotNum="@{6}"-->
     <TextView
         android:id="@+id/textCurrentPlayerName"
         android:layout_width="0dp"
@@ -84,9 +100,10 @@ xmlns:tools= "http://schemas.android.com/tools" >
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/textCurrentPlayerCoinsLeft"
         android:layout_marginStart="32dp"
-        android:text="Hazel"
+        android:text='@{gvm.currentPlayer.playerName ?? @string/na}'
         android:textSize="32sp"
         tools:text="Michael" />
+<!--    android:text='@{vm.currentPlayer.playerName ?? @string/na}'-->
 
     <TextView
         android:id="@+id/textCurrentPlayerCoinsLeft"
@@ -96,13 +113,10 @@ xmlns:tools= "http://schemas.android.com/tools" >
         app:layout_constraintStart_toStartOf="@id/textCoinsLeft"
         app:layout_constraintTop_toBottomOf="@+id/coinSlot6"
         android:gravity="center"
-        android:text="7"
+        android:text='@{gvm.currentPlayer.pennies +""}'
         android:textSize="24sp"
         tools:text="10"/>
     <!--app:layout_constraintTop_toBottomOf="@+id/coinSlot6"-->
-
-
-
 
     <TextView
         android:id="@+id/textCoinsLeft"
@@ -111,7 +125,7 @@ xmlns:tools= "http://schemas.android.com/tools" >
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:text="coin(s) left"
+        android:text="@string/coins_left"
         android:layout_marginEnd="32dp"/>
 
     <LinearLayout
@@ -128,7 +142,12 @@ xmlns:tools= "http://schemas.android.com/tools" >
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:textColor="@android:color/white"
+            android:background="@{gvm.canRoll? @color/colorPrimary : @color/plainGray}"
             android:drawableEnd="@drawable/mdi_dice_6_black_24dp"
+            android:drawableTint="@android:color/white"
+            android:enabled="@{gvm.canRoll}"
+            android:onClick="@{() -> gvm.roll()}"
             android:padding="10dp"
             android:text="@string/roll"/>
 
@@ -144,9 +163,15 @@ xmlns:tools= "http://schemas.android.com/tools" >
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:drawableEnd="@drawable/ic_round_arrow_forward_24"
             android:padding="10dp"
-            android:text="@string/pass"/>
+            android:text="@string/pass"
+            android:background="@{gvm.canPass? @color/colorAccent : @color/plainGray}"
+            android:drawableEnd="@drawable/ic_round_arrow_forward_24"
+            android:enabled="@{gvm.canPass}"
+            android:onClick="@{() -> gvm.pass()}"
+            android:textColor="@color/white"
+            android:drawableTint="@android:color/white"
+           />
 
     </LinearLayout>
     <TextView
@@ -156,7 +181,7 @@ xmlns:tools= "http://schemas.android.com/tools" >
         android:layout_margin="16dp"
         android:scrollbars="vertical"
         android:layout_gravity="center"
-        android:text="This will contain the info about the game"
+        android:text="@{gvm.currentTurnText}"
         app:layout_constraintBottom_toTopOf="@+id/textCurrentStandingInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +194,7 @@ xmlns:tools= "http://schemas.android.com/tools" >
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="This will contain the game's current standings"
+        android:text="@{gvm.currentStandingsText}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

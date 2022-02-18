@@ -5,11 +5,12 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/mdi_dice_6_black_24dp.xml" value="0.14814814814814814" />
         <entry key="app/src/main/res/drawable/ai_toggle_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_android_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/mdi_coin_black_24dp.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_game.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_pick_players.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/layout_coin_slot.xml" value="0.19025641025641027" />
+        <entry key="app/src/main/res/layout/fragment_game.xml" value="0.2971887550200803" />
+        <entry key="app/src/main/res/layout/fragment_pick_players.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/layout_coin_slot.xml" value="0.1" />
         <entry key="app/src/main/res/layout/player_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.22" />
       </map>
