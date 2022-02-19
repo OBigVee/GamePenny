@@ -18,8 +18,17 @@ data class Player(
     fun addPennies(count: Int=1){
         pennies += count
     }
+
     var isRolling:Boolean = false
+
+    fun penniesLeft(subtractPenny: Boolean = false) = (
+            //function is straightforward it checks if a user's penny count
+            // is greater than zero
+            pennies -(if(subtractPenny) 1 else 0)) > 0
+
     companion object{
         const val defaultPennyCount = 10
     }
+
+
 }
