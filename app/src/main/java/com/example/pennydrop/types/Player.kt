@@ -9,26 +9,22 @@ import com.example.pennydrop.game.AI
  *  attributes : playerName; isHuman; selectedAI
  */
 
-data class Player(
-    val playerName:String="",
-    val isHuman:Boolean = true,
-    val selectedAI: AI? = null
-){
+data class Player(val playerName:String="", val isHuman:Boolean = true, val selectedAI: AI? = null){
     var pennies: Int = defaultPennyCount
+    var isRolling:Boolean = false
+
     fun addPennies(count: Int=1){
+        // increment penny
         pennies += count
     }
 
-    var isRolling:Boolean = false
-
-    fun penniesLeft(subtractPenny: Boolean = false) = (
-            //function is straightforward it checks if a user's penny count
-            // is greater than zero
-            pennies -(if(subtractPenny) 1 else 0)) > 0
+    /**
+     * penniesLeft() is straightforward it checks if a user's
+     * penny count is greater than zero
+     */
+    fun penniesLeft(subtractPenny: Boolean = false) = (pennies -(if(subtractPenny) 1 else 0)) > 0
 
     companion object{
         const val defaultPennyCount = 10
     }
-
-
 }
