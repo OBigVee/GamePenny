@@ -2,6 +2,8 @@ package com.example.pennydrop.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.pennydrop.game.GameHandler
+import com.example.pennydrop.game.TurnResult
 import com.example.pennydrop.types.Player
 import com.example.pennydrop.types.Slot
 import com.example.pennydrop.types.clear
@@ -50,11 +52,27 @@ class GameViewModel:ViewModel() {
     }
 
     fun roll(){
-
+        slots.value?.let { currentSlots ->
+            // Comparing against true saves us a null check
+            val currentPlayer = players.firstOrNull(){it.isRolling}
+            if(currentPlayer != null && canRoll.value == true){
+                updateFromGameHandler(
+                    GameHandler.roll(players,currentPlayer,currentSlots)
+                )
+            }
+        }
     }
 
     fun pass(){
+        val currentPlayer = players.firstOrNull{it.isRolling}
+        if(currentPlayer != null && canPass.value == true){
+            updateFromGameHandler(GameHandler.pass(players,currentPlayer))
+        }
+    }
 
+
+    private fun updateFromGameHandler(result: TurnResult) {
+        TODO("Not yet implemented")
     }
 
     private fun <T> MutableLiveData<List<T>>.notifyChange(){
