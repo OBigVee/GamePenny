@@ -9,7 +9,11 @@ import com.example.pennydrop.game.AI
  *  attributes : playerName; isHuman; selectedAI
  */
 
-data class Player(val playerName:String="", val isHuman:Boolean = true, val selectedAI: AI? = null){
+data class Player(
+    val playerName:String="",
+    val isHuman:Boolean = true,
+    val selectedAI: AI? = null
+) {
     var pennies: Int = defaultPennyCount
     var isRolling:Boolean = false
 

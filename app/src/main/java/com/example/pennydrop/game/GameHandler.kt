@@ -9,7 +9,7 @@ object GameHandler {
         players: List<Player>,
         currentPlayer: Player,
         slots: List<Slot>
-    ): TurnResult = rollDie().let { lastRoll ->
+    ):TurnResult = rollDie().let { lastRoll ->
         slots.getOrNull(lastRoll - 1)?.let { slot ->
             if (slot.isFilled) {
                 TurnResult(
@@ -24,18 +24,39 @@ object GameHandler {
                     canPass = false
                 )
             } else {
+                if (!currentPlayer.penniesLeft(true)){
                 TurnResult(
                     lastRoll,
                     currentPlayer = currentPlayer,
-                    canRoll = true,
-                    canPass = true,
-                    coinChangeCount = -1
-                )
+                    coinChangeCount = -1,
+                    isGameOver = true,
+                    turnEnd = TurnEnd.Win,
+                    canRoll = false,
+                    canPass = false,
+                ) }
+                else{
+                    TurnResult(
+                        lastRoll,
+                        currentPlayer = currentPlayer,
+                        canRoll = true,
+                        canPass = true,
+                        coinChangeCount = -1
+                    )
+                }
             }
-        }
-    } ?: TurnResult(isGameOver = true)
+        }?: TurnResult(isGameOver = true)
+    }
 
-
+    fun playAITurn(
+        players:List<Player>,
+        currentPlayer: Player,
+        slots:List<Slot>,
+        canPass:Boolean = false): TurnResult? = currentPlayer.selectedAI?.let{
+            ai -> if(!canPass || ai.rollAgain(slots)){ roll(players, currentPlayer, slots)
+            }else{
+                pass(players, currentPlayer)
+            }
+    }
     fun pass(players: List<Player>, currentPlayer: Player, ) = TurnResult(
         previousPlayer = currentPlayer,
         currentPlayer = nextPlayer(players, currentPlayer),
@@ -47,14 +68,11 @@ object GameHandler {
 
     private fun rollDie(sides: Int = 6) = Random.nextInt(1, sides + 1)
 
-    private fun nextPlayer(
-        players: List<Player>,
-        currentPlayer: Player,
-    ): Player {
+    private fun nextPlayer(players: List<Player>, currentPlayer: Player): Player?{
         /**
          * get the index of the current player in the list of players
          * figure the next player's index
-         * * return the next player
+         * return the next player
          * */
         val currentIndex = players.indexOf(currentPlayer)
         val nextIndex = (currentIndex + 1) % players.size

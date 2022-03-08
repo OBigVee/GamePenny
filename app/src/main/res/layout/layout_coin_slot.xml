@@ -27,8 +27,7 @@
             android:minHeight="36dp"
             android:src="@drawable/mdi_coin_black_24dp"
             app:isHidden="@{!slot.canBeFilled || !slot.isFilled}"
-            android:tint="@{slot.lastRolled ? @color/colorPrimary : @android:color/black}"
-            />
+            android:tint="@{slot.lastRolled ? @color/colorPrimary : @android:color/black}" />
 
         <View
             android:id="@+id/bottomViewCoinSlot"

@@ -2,6 +2,7 @@ package com.example.pennydrop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,9 +12,6 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_pick_players.*
 
 
-//import com.google.android.material.bottomnavigation.BottomNavigationItemView
-//import androidx.navigation.ui.AppBarConfiguration
-//import androidx.navigation.ui.setupActionBarWithNavController
 
 
 
@@ -22,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d(TAG,"onCreate")
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.containerFragment) as
                 NavHostFragment
         this.navController = navHostFragment.navController
@@ -33,6 +33,14 @@ class MainActivity : AppCompatActivity() {
 //        this.buttonPlayGame.setOnClickListener {
 //            Toast.makeText()
 //        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG,"onRestart")
+    }
+    companion object{
+      private  const val TAG = "MainActivity"
     }
 }
 

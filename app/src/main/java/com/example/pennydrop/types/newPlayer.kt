@@ -14,7 +14,7 @@ data class NewPlayer (
     val isHuman:ObservableBoolean = ObservableBoolean(true),
     val canBeRemoved:Boolean = true,
     val canBeToggled: Boolean = true,
-    var isIncluded: ObservableBoolean = ObservableBoolean(false),
+    var isIncluded: ObservableBoolean = ObservableBoolean(!canBeRemoved),
     // track the index of selected AI(retrieved from Ai.BasicAI or AI.getBasicAI)
     var selectedAIPosition: Int = -1
 ){
@@ -36,6 +36,17 @@ data class NewPlayer (
         this.isHuman.get(),
         this.selectedAI()
     )
+
+    override fun toString() = listOf(
+        "name" to this.playerName,
+        "isIncluded" to this.isIncluded.get(),
+        "isHuman" to this.isHuman.get(),
+        "canBeRemoved" to this.canBeRemoved,
+        "canBeToggled" to this.canBeToggled,
+        "selectedAI" to (this.selectedAI()?.name ?: "N/A")
+    ).joinToString (", ", "NewPlayer(", ")"){
+        (property, value)->"$property = $value"
+    }
 }
 
 
