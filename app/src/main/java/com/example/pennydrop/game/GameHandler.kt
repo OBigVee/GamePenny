@@ -57,6 +57,7 @@ object GameHandler {
                 pass(players, currentPlayer)
             }
     }
+
     fun pass(players: List<Player>, currentPlayer: Player, ) = TurnResult(
         previousPlayer = currentPlayer,
         currentPlayer = nextPlayer(players, currentPlayer),

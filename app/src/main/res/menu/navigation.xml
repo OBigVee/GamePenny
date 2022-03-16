@@ -8,4 +8,8 @@
         android:id="@+id/gameFragment"
         android:icon="@drawable/mdi_dice_6_black_24dp"
         android:title="@string/game"/>
+    <item
+        android:id="@+id/ruleFragment"
+        android:icon="@drawable/ic_round_live_help_24"
+        android:title="@string/gameHelp" />
 </menu>

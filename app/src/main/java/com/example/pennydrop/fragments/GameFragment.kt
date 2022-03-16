@@ -9,11 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.pennydrop.databinding.FragmentGameBinding
 import com.example.pennydrop.viewmodels.GameViewModel
-/**
- * A simple [Fragment] subclass.
- * Use the [GameFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class GameFragment : Fragment() {
     private val gameViewModel by activityViewModels<GameViewModel>()
 

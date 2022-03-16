@@ -15,16 +15,17 @@
     <string name="rule_intro">This is a game for two or more players wherein the players take turn in
         rolling a six sided dice.</string>
     <string name="Rule_">Game Rules:</string>
-    <string name="rule_1">Player rolls a number, then puts a penny into the machine slot index
+    <string name="rule_1">1. Player rolls a number, then puts a penny into the machine slot index
         corresponding to the number the player just rolled.</string>
-    <string name="rule_2">If the slots is a 6, the penny falls through the board and the player is
+    <string name="rule_2">2. If the slots is a 6, the penny falls through the board and the player is
     out of the game.</string>
-    <string name="rule_3">If a player roll the dice and the machine slot is already filled with the
+    <string name="rule_3">3. If a player roll the dice and the machine slot is already filled with the
         value, the player takes all the pennies on the board and player passes unto the next
     player. </string>
-    <string name="rule_4">players must roll at least once but can decide to pass his/her turn to the
+    <string name="rule_4">4. Players must roll at least once but can decide to pass his/her turn to the
     next player.</string>
-    <string name="rule_5">The First player to get rid of all the pennies if the winner.</string>
+    <string name="rule_5">5. The First player to get rid of all the pennies if the winner.</string>
     <string name="charge">Now that you know the rules, make the game winnable for yourself by
     maximizing wining, GOOD LUCK amigos!</string>
+    <string name="gameHelp">help</string>
 </resources>

@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".fragments.RuleFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/rule_intro" />
+<!--   android:layout_width="match_parent"-->
+<!--   android:layout_height="match_parent"-->
 
-</FrameLayout>
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:layout_margin="10dp"
+          android:padding="9dp">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:layout_marginBottom="10dp"
+              android:layout_gravity="center"
+              android:textSize="36sp"
+              android:textStyle="bold"
+              android:text="@string/Rule_"/>
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:textSize="32sp"
+              android:textStyle="italic"
+              android:padding="5dp"
+              android:layout_marginBottom="4dp"
+              android:text="@string/rule_intro" />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="7dp"
+              android:textSize="32sp"
+              android:text="@string/rule_1"/>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:textSize="32sp"
+              android:layout_marginBottom="7dp"
+              android:text="@string/rule_2"/>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="7dp"
+              android:textSize="32sp"
+              android:text="@string/rule_3"/>
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="7dp"
+              android:textSize="32sp"
+              android:text="@string/rule_4"/>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="7dp"
+              android:textSize="32sp"
+              android:text="@string/rule_5"/>
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:textStyle="italic"
+              android:textColor="#17CF20"
+              android:textSize="32sp"
+              android:text="@string/charge"/>
+
+      </LinearLayout>
+  </ScrollView>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

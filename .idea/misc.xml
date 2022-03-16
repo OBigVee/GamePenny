@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_game.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_pick_players.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_rule.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_rule.xml" value="0.22" />
         <entry key="app/src/main/res/layout/layout_coin_slot.xml" value="0.1" />
         <entry key="app/src/main/res/layout/player_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.22" />
